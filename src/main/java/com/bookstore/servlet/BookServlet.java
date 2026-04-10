@@ -2,7 +2,7 @@ package com.bookstore.servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
