@@ -1,5 +1,13 @@
-FROM tomcat:10.1-jdk21
+FROM tomcat:10.1-jdk17
 
-COPY OnlineBookStore.war /usr/local/tomcat/webapps/
+# Remove default apps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
+# Copy latest WAR file
+COPY OnlineBookStore.war /usr/local/tomcat/webapps/OnlineBookStore.war
+
+# Expose port
 EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
