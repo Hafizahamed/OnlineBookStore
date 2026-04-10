@@ -9,19 +9,18 @@ public class DBConnection {
         Connection con = null;
 
         try {
-            // ✅ FORCE driver load (IMPORTANT FIX)
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/bookstore?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC",
-                "root",
-                "1234"
-            );
+            // ✅ Railway MySQL connection
+            String url = "jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            String user = "root";
+            String password = "tzjYFbLZLXNdCweAzzsEvLxMJmEyTNkZ";
 
-            System.out.println("✅ Connected to MySQL");
+            con = DriverManager.getConnection(url, user, password);
 
-        } catch(Exception e) {
-            System.out.println("❌ Connection Error:");
+            System.out.println("✅ Connected to Railway DB");
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
